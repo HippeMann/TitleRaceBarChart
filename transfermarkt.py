@@ -48,9 +48,12 @@ data = {
 # read the competition
 with open('comp.txt', 'r') as f:
 	comp = f.read().strip()
+print(comp)
 
 url  = f"https://www.transfermarkt.com/_/spieltagtabelle/wettbewerb/{comp}"
 soup = BeautifulSoup(requests.get(url, headers=headers).text, 'lxml')
+
+print(url)
 
 max_matchday = len(soup.find('select', {'name':"spieltag"}).findAll('option'))
 
@@ -58,8 +61,8 @@ meta_name = soup.find('meta', {'name':"keywords"})['content']
 competition = meta_name.split(',')[0]
 country = meta_name.split(',')[1]
 
-
-
+print(country)
+print(competition)
 
 for matchday in range(1, max_matchday + 1):
 	print(matchday, end=' ')
