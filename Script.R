@@ -57,7 +57,7 @@ competition.name <- competition.names[competition.number]
 
 #Generate Data
 write(competition.id, "comp.txt")
-system("python transfermarkt.py")
+#system("python transfermarkt.py")
 
 
 #Read Data
@@ -78,17 +78,6 @@ wd <- getwd()
 dt$TeamLogo <- paste0(wd, "/Logos/", competition, "/", dt$Team, '.png')
 league.logo <- paste0(wd, "/Logos/", competition, "/", competition, '.png') 
 
-
-#Checks
-file.exists(league.logo)
-
-if (sum(!file.exists(unique(dt$TeamLogo)))){ # checks if TeamLogo file exists
-unique(dt$TeamLogo)[!file.exists(unique(dt$TeamLogo))]} 
-
-if(sum(!(unique(dt$Team) %in% names(TeamColors)))){ #Check if Team is in TeamColors
-  print(unique(dt$Team)[!(unique(dt$Team) %in% names(TeamColors))])}
-
-
 #Colors ####
 
 #Team Colors for bars
@@ -100,6 +89,16 @@ names(TeamColors) <- TeamColors.csv[,1]
 competition.colors <- qual.colors.list[[competition]]
 plot.colors <- setNames(rep("#FFFFFF",n.teams), c(as.character(1:n.teams)))
 plot.colors[names(competition.colors)] <- competition.colors
+
+
+#Checks
+file.exists(league.logo)
+
+if (sum(!file.exists(unique(dt$TeamLogo)))){ # checks if TeamLogo file exists
+  unique(dt$TeamLogo)[!file.exists(unique(dt$TeamLogo))]} 
+
+if(sum(!(unique(dt$Team) %in% names(TeamColors)))){ #Check if Team is in TeamColors
+  print(unique(dt$Team)[!(unique(dt$Team) %in% names(TeamColors))])}
 
 
 #Plot ####
@@ -133,7 +132,7 @@ p <- dt %>% #filter(Matchday == max.matchday) %>%
 
 print(p, width = 1200, height = 900) #preview (100 frames at 10 fps)
 
-anim_save(paste0("Gifs/", competition, ".gif"), p, nframes = current.matchday * fps, fps = fps, end_pause = fps * 5, width = 1200, height = 900)
+anim_save(paste0("Gifs/", competition, ".gif"), p, nframes = max.matchday * fps, fps = fps, end_pause = fps * 5, width = 1200, height = 900)
 
 
 #Other Plot (if a team has a point deduction Championship/Serie A) ####
@@ -173,7 +172,7 @@ p <- dt %>% #filter(Matchday == max.matchday)
 
 print(p, width = 1200, height = 900) #preview (100 frames at 10 fps)
 
-anim_save(paste0("Gifs/", competition, ".gif"), p, nframes = current.matchday * fps, fps = fps, end_pause = fps * 5, width = 1200, height = 900)
+anim_save(paste0("Gifs/", competition, ".gif"), p, nframes = max.matchday * fps, fps = fps, end_pause = fps * 5, width = 1200, height = 900)
 
 
 
