@@ -46,7 +46,7 @@ data = {
 """
 
 # read the competition
-with open('url.txt', 'r') as f:
+with open('comp.txt', 'r') as f:
 	comp = f.read().strip()
 
 url  = f"https://www.transfermarkt.com/_/spieltagtabelle/wettbewerb/{comp}"
