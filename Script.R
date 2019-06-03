@@ -172,7 +172,7 @@ p <- dt %>% #filter(Matchday == max.matchday)
 
 print(p, width = 1200, height = 900) #preview (100 frames at 10 fps)
 
-anim_save(paste0("Gifs/", competition, ".gif"), p, nframes = max.matchday * fps, fps = fps, end_pause = fps * 5, width = 1200, height = 900)
+anim_save(paste0("Gifs/", competition, "v2.gif"), p, nframes = max.matchday * fps, fps = fps, end_pause = fps * 5, width = 1200, height = 900)
 
 
 
