@@ -92,7 +92,7 @@ team.colors.csv <- read.csv(file="TeamColors.csv", header=T, stringsAsFactors = 
 team.colors <- team.colors.csv[,2]
 names(team.colors) <- team.colors.csv[,1]
 
-#Compeition colors for vertical qualifications lines
+#Competition colors for vertical qualifications lines
 competition.colors <- qual.colors.list[[competition]]
 plot.colors <- setNames(rep("#FFFFFF", n.teams), c(as.character(1:n.teams)))
 plot.colors[names(competition.colors)] <- competition.colors
