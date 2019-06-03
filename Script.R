@@ -100,6 +100,8 @@ if (sum(!file.exists(unique(dt$TeamLogo)))){ # checks if TeamLogo file exists
 if(sum(!(unique(dt$Team) %in% names(TeamColors)))){ #Check if Team is in TeamColors
   print(unique(dt$Team)[!(unique(dt$Team) %in% names(TeamColors))])}
 
+dir.create('Gifs', showWarnings = FALSE)
+
 
 #Plot ####
 fps <- 30
