@@ -52,7 +52,7 @@ qual.colors.list <- list(
   
 )
 
-competition.number <- 3
+competition.number <- 1
 
 competition <- names(competition.ids)[competition.number]
 competition.id <- competition.ids[competition.number]
@@ -63,7 +63,7 @@ competition.name <- competition.names[competition.number]
 
 #Generate Data
 write(competition.id, "comp.txt")
-#system("python transfermarkt.py")
+system("python transfermarkt.py")
 
 
 
@@ -117,7 +117,7 @@ p <- dt %>% #filter(Matchday == max.matchday) %>%
   ggplot(aes(x = Rank)) +
   geom_bar(aes(y = Points, fill = Team), stat="identity", alpha = 0.8) +
   geom_image(aes(image = TeamLogo, y = Points + 3)) + #Team Logo on top of the bars
-  geom_image(image = league.logo, x = n.teams / 2 + 1, y = max.points, size = 0.2) + #League Logo at the top center, add + 1 to the x to nudge it for the Bundesliga
+  geom_image(image = league.logo, x = n.teams / 2, y = max.points, size = 0.2) + #League Logo at the top center, add + 1 to the x to nudge it for the Bundesliga
   #Vertical "qualification" lines
   geom_vline(xintercept = as.numeric(names(competition.colors)) + 0.5, colour = as.character(competition.colors), alpha = 0.5, size = 1.5) + 
   #Colors
