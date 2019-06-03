@@ -67,7 +67,7 @@ print(competition)
 for matchday in range(1, max_matchday + 1):
 	print(matchday, end=' ')
 	time.sleep(1)
-	url  = f"https://www.transfermarkt.fr/_/spieltagtabelle/wettbewerb/{comp}?saison_id=2018&spieltag={matchday}"
+	url  = f"https://www.transfermarkt.com/_/spieltagtabelle/wettbewerb/{comp}?saison_id=2018&spieltag={matchday}"
 	soup = BeautifulSoup(requests.get(url, headers=headers).text, 'lxml')
 
 	matchday_data = []
