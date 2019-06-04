@@ -46,8 +46,7 @@ data = {
 """
 
 # read the competition
-with open('comp.txt', 'r') as f:
-	comp = f.read().strip()
+comp = sys.argv[-1]
 print(comp)
 
 #Get Base info
