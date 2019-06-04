@@ -62,8 +62,7 @@ competition.name <- competition.names[competition.number]
 #Data ####
 
 #Generate Data
-write(competition.id, "comp.txt")
-system("python transfermarkt.py")
+system(paste("python transfermarkt.py", competition.id))
 
 
 
